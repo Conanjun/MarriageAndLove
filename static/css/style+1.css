@@ -1,0 +1,514 @@
+/* Website template by # */
+
+body {
+	background: url(../images/bg-body.jpg) repeat center top;
+	color: #2b0d05;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	min-width: 960px;
+	padding: 0;
+}
+
+a {
+	outline: none;
+}
+
+img {
+	border: 0;
+}
+
+p {
+	line-height: 24px;
+	text-align: justify;
+}
+
+p a {
+	text-decoration: underline;
+}
+
+#header {
+	width: 100%;
+}
+
+#header div{
+	margin: 0 auto 48px;
+	overflow: hidden;
+	width: 960px;
+}
+
+#header div img {
+	float: left;
+	padding: 68px 0 0;
+}
+
+#header div ul {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 70px 0 0;
+}
+
+#header div ul li {
+	float: left;
+}
+
+#header div ul li a {
+	color: #2b0d05;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	height: 46px;
+	line-height: 75px;
+	padding: 0 15px 0;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#header div ul li.current a,
+#header div ul li a:hover {
+	background: url(../images/bg-menu-selected.png) no-repeat center top;	
+}
+
+#header div#figure {
+	background: url(../images/frame1.png) no-repeat center top;
+	height: 421px;
+	margin: 0;
+	position: relative;
+	width:auto;
+}
+
+#header div#figure img{
+	float: none;
+	padding: 0;
+}
+
+#header div#figure div {
+	margin: 27px auto 0;
+	width: 909px;
+}
+
+#body {
+	margin: 35px 0 0;
+}
+
+#body p a {
+	color: #2b0d05;
+}
+
+#body div {
+	background: url(../images/separator.png) no-repeat center 20px;
+	margin: 0 auto 35px;
+	width: 960px;
+}
+
+#body div#studio {
+	padding: 60px 0 0;
+}
+
+#body div div {
+	background: url(../images/separator.png) no-repeat center bottom;
+}
+
+#body div div div {
+	background: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0 0 40px;
+}
+
+#body div div div div:first-child {
+	border: none;
+	background: none;
+	float: left;
+	height: auto;
+	width: 525px;
+}
+
+#body div div div div:first-child h2,
+#body div div div div h2,
+#body div div div h2 {
+	background: url(../images/bg-menu.png) no-repeat 0 -140px;
+	color: #ded3cd;
+	font-family: 'PlayballRegular';
+	font-size: 40px;
+	font-weight: normal;
+	height: 61px;
+	line-height: 61px;
+	margin: 0 0 25px 60px;
+	text-align: center;
+	width: 231px;
+}
+
+#body div div div div:first-child p {
+	margin: 0;
+	text-indent: 30px;
+}
+
+#body div div div div#share {
+	background: none;
+	float: none;
+	height: auto;
+	line-height: 21px;
+	margin: 10px 0 0;
+	width: auto;
+}
+
+#body div div div div#share a {
+	display: inline-block;
+	height: 18px;
+	margin: 0 5px;
+	text-indent: -99999px;
+}
+
+#body div div div div#share a#twitter {
+	background: url(../images/icon.png) no-repeat 0 -92px;
+	width: 24px;
+}
+
+#body div div div div#share a#facebook {
+	background: url(../images/icon.png) no-repeat 0 -63px;
+	width: 19px;
+}
+
+#body div div div div h2 {
+	margin: 0 auto 25px;
+}
+
+#body div div div div {
+	background: none;
+	float: right;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	width: 400px;
+}
+
+#body div div div div div {
+	background: url(../images/frame2.png) no-repeat center top;
+	float: none;
+	height: 360px;
+	margin: 30px 0 0;
+	width: 400px;
+}
+
+#body div div div div div h3 {
+	color: #ded3cd;
+	font-family: 'PlayballRegular';
+	font-size: 30px;
+	font-weight: normal;
+	margin: 15px 0 0;
+	text-align: center;
+}
+
+#body div div div div div ul {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0 20px;
+}
+
+#body div div div div div ul li {
+	float: left;
+	padding: 10px 10px 8px;
+	width: 70px;
+}
+
+#body div div div div div div, 
+div.body div div div#gallery div#paging {
+	background: none;
+	height: auto;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 340px;
+}
+
+div.body div div div#gallery div#paging {
+	float: none;
+	padding: 0;
+	width: 910px;
+}
+
+#body div div div div div div a, 
+div.body div div div#gallery div#paging a {
+	color: #ede1d1;
+	display: block;
+	height: 22px;
+	line-height: 20px;
+	text-decoration: none;
+}
+
+#body div div div div div div a:hover,
+div.body div div div#gallery div#paging a:hover {
+	color: #bc955c;
+}
+
+#body div div div div div div a.prev,
+div.body div div div#gallery div#paging a.prev {
+	background: url(../images/icon.png) no-repeat left -32px;
+	float: left;
+	text-indent: 25px;
+	
+}
+
+#body div div div div div div a.next,
+div.body div div div#gallery div#paging a.next {
+	background: url(../images/icon.png) no-repeat right 0;
+	float: right;
+	padding: 0 30px 0 0;
+}
+
+div.body {
+	background:url(../images/bg-body2.gif) repeat center;
+	color: #efe3d3;
+	margin: -210px 0 0;
+	padding: 235px 0 30px;
+}
+
+div.body h2 {
+	background: url(../images/bg-menu.png) no-repeat left -140px;
+	font-family: 'PlayballRegular';
+	font-size: 40px;
+	font-weight: normal;
+	height: 61px;
+	line-height: 61px;
+	margin: 0 auto 30px;
+	text-indent: 50px;
+	width: 960px;
+}
+
+div.body p a {
+	color: #EFE3D3;
+}
+
+div.body div {
+	background: url(../images/bg-content-top.png) no-repeat center top;
+	margin: 0 auto;
+	padding: 24px 0 0;
+	width: 960px;
+}
+
+div.body div div {
+	background: url(../images/bg-content-bottom.png) no-repeat center bottom;
+	padding: 0 0 25px;
+	width: auto;
+}
+
+div.body div div div {
+	background: url(../images/bg-content.png) repeat-y center top;
+	overflow: hidden;
+	padding: 0 30px 0;
+	width: auto;
+}
+
+div.body div div div#gallery,
+div.body div div div#photographers {
+	padding: 0 15px 0;
+}
+
+div.body div div div h3 {
+	font-family: 'PlayballRegular';
+	font-size: 40px;
+	font-weight: normal;
+	margin: 0 0 5px;
+}
+	
+div.body div div div span {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0;
+}
+
+div.body div div div p {
+	margin: 5px 0 20px;
+}
+
+div.body div div div ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+div.body div div div ul li {
+	float: left;
+	margin: 10px 13px;
+}
+
+div.body div div div#photographers ul,
+div.body div div div#gallery ul {
+	overflow: hidden;
+}
+
+div.body div div div#photographers ul li {
+	height: 140px;
+	margin: 10px 15px;
+	width: 432px;
+}
+
+div.body div div div#photographers ul li p {
+	float: right;
+	margin: 0 0 20px;
+	position: relative;
+	width: 265px;
+}
+
+div.body div div div#photographers ul li p span {
+	color: #DAA061;
+	display: inline-block;
+}
+
+div.body div div div#photographers ul li p span.date {
+	float: right;
+	font-style: italic;
+	font-weight: normal;
+}
+
+div.body div div div#photographers ul li img {
+	float: left;
+}
+
+div.body div div div ul li img {
+	border: 3px solid #b99058;
+}
+
+div.body div div div div:first-child {
+	background: none;
+	float: left;
+	padding: 0;
+	width: 555px;
+}
+
+div.body div div div div:first-child h2 {
+	background: none;
+	color: #daa061;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	line-height: 17px;
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+	width: auto;
+}
+
+div.body div div div div:first-child span {
+	color: #daa061;
+	display: inline-block;
+	font-style: italic;
+	font-weight: normal;
+	float: right;
+}
+
+div.body div div div div {
+	background: none;
+	float: right;
+	padding: 3px 0 0;
+	width: 330px;
+}
+
+div.body div div div div h4 {
+	background: url(../images/bg-sidebar-title.png) no-repeat center top;
+	color: #daa061;
+	font-family: 'PlayballRegular';
+	font-size: 30px;
+	font-weight: normal;
+	line-height: 42px;
+	margin: 0;
+	text-align: center;
+}
+
+div.body div div div div div {
+	background: url(../images/bg-sidebar-bottom.png) no-repeat center bottom;
+	float: none;
+	padding: 0 0 21px;
+	width: auto;
+}
+
+div.body div div div div div ul {
+	border-left: 4px solid #c89e62;
+	border-right: 4px solid #c89e62;
+	list-style: none;
+	margin: 0;
+	padding: 0 20px;
+}
+
+div.body div div div div div ul li {
+	display: block;
+	float: none;
+	margin: 0;
+}
+
+div.body div div div div div ul li a {
+	background: url(../images/bullet.png) no-repeat left center;
+	color: #daa061;
+	display: inline-block;
+	line-height: 24px;
+	text-align: justify;
+	text-decoration: none;
+	text-indent: 15px;
+}
+
+div.body div div div div div ul li a:hover {
+	color: #efe3d3;
+}
+
+#footer{
+	background: url(../images/bg-footer.png) repeat-x center top;
+	min-height: 300px;
+	margin-top: -45px;
+	overflow: hidden;
+}
+
+#footer ul {
+	list-style: none;
+	margin: 50px auto 0;
+	overflow: hidden;
+	padding: 0;
+	width: 960px;
+}
+
+#footer ul li {
+	float: left;
+	height: 60px;
+	line-height: 60px;
+	margin: 0 0 0 25px;
+	width: 220px;
+}
+
+#footer ul li:first-child {
+	margin: 0;
+}
+
+#footer ul li a {
+	background: url(../images/bg-menu.png) no-repeat 0 -70px;
+	color: #2B0D05;
+	display: block;
+	font-family: 'PlayballRegular';
+	font-size: 30px;
+	text-align: center;
+	text-decoration: none;
+}
+
+#footer ul li.current a, 
+#footer ul li a:hover {
+	background: url(../images/bg-menu.png) no-repeat 0 0;
+}
+
+#footer p {
+	margin: 80px 0 0;
+	text-align: center;
+	text-transform: lowercase;
+}
+
+@font-face {
+    font-family: 'PlayballRegular';
+    src: url('../fonts/playball-regular-webfont.eot');
+    src: url('../fonts/playball-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/playball-regular-webfont.woff') format('woff'),
+         url('../fonts/playball-regular-webfont.ttf') format('truetype'),
+         url('../fonts/playball-regular-webfont.svg#PlayballRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

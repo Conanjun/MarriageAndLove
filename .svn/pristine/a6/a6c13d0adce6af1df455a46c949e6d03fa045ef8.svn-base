@@ -1,0 +1,8 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="user_active.aspx.cs" Inherits="user_noauth_user_user_active" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	点击激活链接发送验证码或往邮箱再次发送激活邮件
+</asp:Content>
+

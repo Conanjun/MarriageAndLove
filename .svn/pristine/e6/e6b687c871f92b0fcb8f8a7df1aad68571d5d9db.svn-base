@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IsExistUser.aspx.cs" Inherits="register_IsExistUser" %>

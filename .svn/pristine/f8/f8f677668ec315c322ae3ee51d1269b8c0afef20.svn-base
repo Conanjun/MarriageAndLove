@@ -1,0 +1,81 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="display_choose.aspx.cs" Inherits="user_auth_user_common_user_mychoose_display_choose" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <form id="form1" runat="server">
+         <p>基本择偶要求</p>
+    <br/>
+    <asp:Table ID="Table1" runat="server" Height="270px" Width="80%">
+        <asp:TableRow>
+            <asp:TableCell>对方性别</asp:TableCell><asp:TableCell><asp:Label ID="csext" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>要求年龄</asp:TableCell><asp:TableCell><asp:Label ID="aget" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>要求身高（单位cm）</asp:TableCell><asp:TableCell><asp:Label ID="heightt" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>要求婚姻状况</asp:TableCell><asp:TableCell><asp:Label ID="marriagestatust" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>要求学历</asp:TableCell><asp:TableCell><asp:Label ID="degreet" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>要求地区</asp:TableCell><asp:TableCell><asp:Label ID="locationareat" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>要求有无照片</asp:TableCell><asp:TableCell><asp:Label ID="ishasimaget" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>要求月薪（单位元）</asp:TableCell><asp:TableCell><asp:Label ID="salaryt" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+        <br />
+        <p>详细择偶要求</p>
+        <br />
+        <asp:Table ID="Table2" runat="server" Height="210px" Width="80%">
+        <asp:TableRow>
+            <asp:TableCell>要求家庭背景</asp:TableCell><asp:TableCell><asp:Label ID="option1t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>是否介意婚前公证财产</asp:TableCell><asp:TableCell><asp:Label ID="option2t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>是否介意经常跟好朋友出去玩</asp:TableCell><asp:TableCell><asp:Label ID="option3t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>最关注对方什么条件</asp:TableCell><asp:TableCell><asp:Label ID="option4t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>最不能忍受对方的缺点</asp:TableCell><asp:TableCell><asp:Label ID="option5t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>是否介意抽烟喝酒</asp:TableCell><asp:TableCell><asp:Label ID="option6t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>是否要小孩</asp:TableCell><asp:TableCell><asp:Label ID="option7t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>是否希望对方浪漫</asp:TableCell><asp:TableCell><asp:Label ID="option8t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>婚后理财规划</asp:TableCell><asp:TableCell><asp:Label ID="option9t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>家务如何分配</asp:TableCell><asp:TableCell><asp:Label ID="option10t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>消费观</asp:TableCell><asp:TableCell><asp:Label ID="option11t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>如果有外遇</asp:TableCell><asp:TableCell><asp:Label ID="option12t" runat="server"></asp:Label></asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+        <asp:Button ID="ToUpdate" runat="server" Text="修改择偶要求" OnClick="ToUpdate_Click" />
+    </form>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="background" Runat="Server">
+</asp:Content>
+

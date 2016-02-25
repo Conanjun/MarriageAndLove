@@ -1,0 +1,185 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="myfriend.aspx.cs" Inherits="user_auth_user_common_user_myfriend" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+	<link href="/static/css/default.css" rel="stylesheet" type="text/css"/>
+	<link href="/static/css/component.css" rel="stylesheet" type="text/css" />
+	<script src="<%=ROOTPATH %>/static/js/classie.js" type="text/javascript"></script>
+	<script src="<%=ROOTPATH %>/static/js/modernizr.custom.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(function () {
+			$("table tr:nth-child(odd)").addClass("odd-row");
+			$("table td:first-child, table th:first-child").addClass("first");
+			$("table td:last-child, table th:last-child").addClass("last");
+		});
+</script>
+<style type="text/css">
+html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,b, i,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}
+/*body {
+	margin:0;
+	padding:0;
+	font:12px/15px "Helvetica Neue",Arial, Helvetica, sans-serif;
+	color: #555;
+	background:#f5f5f5;
+}*/
+a {color:#666;}
+#content {width:65%; max-width:690px; margin:6% auto 0;}
+table {
+	overflow:hidden;
+	border:1px solid #d3d3d3;
+	background:#fefefe;
+	width:70%;
+	margin:0 auto 0;
+	-moz-border-radius:5px; /* FF1+ */
+	-webkit-border-radius:5px; /* Saf3-4 */
+	border-radius:5px;
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+th, td {padding:18px 28px 18px; text-align:center; }
+th {padding-top:22px; text-shadow: 1px 1px 1px #fff; background:#e8eaeb;}
+td {border-top:1px solid #e0e0e0; border-right:1px solid #e0e0e0;}
+tr.odd-row td {background:#f6f6f6;}
+td.first, th.first {text-align:center}
+td.last {border-right:none;}
+td {
+	background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
+	background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));
+}
+tr.odd-row td {
+background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
+background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
+}
+th {
+	background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
+	background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
+}
+tr:first-child th.first {
+	-moz-border-radius-topleft:5px;
+	-webkit-border-top-left-radius:5px; /* Saf3-4 */
+}
+tr:first-child th.last {
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-right-radius:5px; /* Saf3-4 */
+}
+tr:last-child td.first {
+	-moz-border-radius-bottomleft:5px;
+	-webkit-border-bottom-left-radius:5px; /* Saf3-4 */
+}
+tr:last-child td.last {
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-bottom-right-radius:5px; /* Saf3-4 */
+}
+li{
+	float:left;
+	 list-style:none;
+}
+</style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<style>
+        li{float:left; list-style:none;}
+       
+    </style>
+	<form runat="server">
+	<div class="div2"><img src="<%=ROOTPATH %>/static/image/9.png" class="img2"/>&nbsp&nbsp好友列表</div><img src="<%=ROOTPATH %>/static/image/11.png"><br />
+        
+	  
+		  <%for(int i=0;i<FriendCount;i++){ %>         
+				    
+					 
+		 <a href="#"><%=friendlist[i]%></a>
+		<% if(isInOnlineUserReal(friendlist[i])){ %>
+				
+					在线
+					 <%}else{ %>
+				    离线
+		<a href="show_friendinfo.aspx?friendname_dtl=<%=friendlist[i]%>" target="_parent">查看好友<img src="<%=ROOTPATH %>/static/image/14.png" class="img2"/></a>
+					 <%} %>
+                        
+					<a href="friend_msg.aspx?friendname_msg=<%=friendlist[i]%>" target="_parent">发送消息<img src="<%=ROOTPATH %>/static/image/13.png" class="img2"/></a>
+					<a href="../chat/chatroom.aspx?launch_username=<%=Session["username"]%>&invited_username=<%=friendlist[i]%>">发起实时聊天<img src="<%=ROOTPATH %>/static/image/13.png" class="img2"/></a>
+					 <%--实时聊天功能暂时共用一个聊天室，想到别的解决办法再改--%>
+
+				    <a href="friend_del.aspx?friendname_del=<%=friendlist[i]%>" target="_parent">删除好友<img src="<%=ROOTPATH %>/static/image/15.png" class="img2"/></a>
+			       
+				 <br /> 
+                     <br />      
+				<%--<input type="button" id="<%=i %>" /> --%>
+				<%-- <asp:Button ID="<%=i%>" runat="server" Text="发送消息"/> --%> 
+				<%-- <asp:Button ID="<%=FriendCount+i%>" runat="server" Text="查看好友"/> --%> 
+				<%-- <asp:Button ID="<%=2*FriendCount+i%>" runat="server" Text="删除好友"/> --%>
+		  <%} %>
+	  
+           
+		<br />
+		<br />
+			<asp:Label ID="Label1" runat="server" Text="好友总数:"></asp:Label>
+&nbsp;
+			<asp:Label ID="Label2" runat="server" Text="0"></asp:Label>
+		
+        <br />
+	<div class="div2"><img src="<%=ROOTPATH %>/static/image/5.png" class="img2"/>&nbsp&nbsp搜索好友</div><img src="<%=ROOTPATH %>/static/image/11.png">
+	<%--使用ajax完成搜索功能--%>
+	
+            <br />
+			<div>&nbsp&nbsp&nbsp&nbsp<asp:TextBox ID="TextBox1"  style="background-color:#f2eeee"
+            onfocus="style.backgroundColor='#fafaf8'"
+            onblur="style.backgroundColor='#f2eeee'" runat="server" Width="129px" Height="40"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;
+	
+            
+			<asp:Button ID="search" class="btn btn-6 btn-6a" runat="server" Text="查找" OnClick="search_Click"/>
+		</div>
+
+		<br />
+		<asp:Label ID="Label3" runat="server" Text="搜索结果:" Width="100px"></asp:Label>
+		<asp:Label ID="Label4" runat="server" Text="test" Width="100px"></asp:Label>
+		<br />
+         <ul>
+		  <%for(int i=0;i<SearchFriendCount;i++){ %>
+				 <li><a href="#"><%=searchfriendlist[i]%></a>
+					 &nbsp;&nbsp;&nbsp;<a href="friend_detail.aspx?friendname_dtl=<%=friendlist[i]%>>">查看好友</a>
+					 &nbsp;&nbsp;&nbsp;<a href="friend_msg.aspx?friendname_msg=<%=friendlist[i]%>">发送消息</a>
+					 &nbsp;&nbsp;&nbsp;<a href="friend_del.aspx?friendname_del=<%=friendlist[i]%>">删除好友</a>
+				 </li>	
+                                <%--<input type="button" id="<%=i %>" /> --%>
+				<%-- <asp:Button ID="<%=i%>" runat="server" Text="发送消息"/> --%> 
+				<%-- <asp:Button ID="<%=FriendCount+i%>" runat="server" Text="查看好友"/> --%> 
+				<%-- <asp:Button ID="<%=2*FriendCount+i%>" runat="server" Text="删除好友"/> --%>
+		  <%} %>
+	  </ul>
+		<br />
+	
+
+	<div class="div2"><img src="<%=ROOTPATH %>/static/image/00.jpg" class="img2"/>&nbsp&nbsp添加好友</div><img src="<%=ROOTPATH %>/static/image/11.png">
+		
+			&nbsp;<br />&nbsp&nbsp&nbsp&nbsp&nbsp
+		<asp:TextBox ID="TextBox2"  style="background-color:#f2eeee"
+            onfocus="style.backgroundColor='#fafaf8'"
+            onblur="style.backgroundColor='#f2eeee'" runat="server" Width="129px" Height="40"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;
+			
+			<asp:Button ID="add" class="btn btn-6 btn-6a" runat="server" Text="添加" OnClick="add_Click"/>
+		<br />
+		<br />
+	<div class="div2"><img src="<%=ROOTPATH %>/static/image/10.png" class="img2"/>&nbsp&nbsp好友申请</div><img src="<%=ROOTPATH %>/static/image/11.png">
+		<ul>
+			<%for(int i=0;i<FriendAskCount;i++){ %>
+			<li><%=friendasklist[i]%>的好友申请&nbsp;&nbsp<a href="accept_friendask.aspx?action=accept&deal_friend=<%=friendasklist[i]%>">允许</a>&nbsp;&nbsp;<a href="accept_friendask.aspx?action=refuse&deal_friend=<%=friendasklist[i]%>">拒绝</a></li>
+			<%} %>
+		</ul>
+
+</form>
+	
+</asp:Content>
+
+	

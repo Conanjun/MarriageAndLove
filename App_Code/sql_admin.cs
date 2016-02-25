@@ -1,0 +1,126 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data;
+using System.Data.SqlClient;
+
+/// <summary>
+/// sql_admin 的摘要说明
+/// </summary>
+public class sql_admin
+{
+	private readonly DataBase data = new DataBase();
+	string admin_name = "";
+	string admin_password = "";
+
+	public string AdminName
+	{
+		get { return admin_name; }
+		set { admin_name = value; }
+	}
+
+	public string AdminPassword
+	{
+		get { return admin_password; }
+		set { admin_password = value; }
+	}
+
+	//管理员登陆
+	public DataSet AdminLoginByAccount(sql_admin admin)
+	{
+		SqlParameter[] parms ={
+								 data.MakeInParam("@AdminName",SqlDbType.VarChar,50,admin.admin_name),
+								 data.MakeInParam("@PassWord",SqlDbType.VarChar,50,admin.admin_password),
+							 };
+		//返回结果集的方式，使用data.Tables[0].Rows.Count取得行数判断是否登录成功
+		return data.RunProcReturn("select * from admin where adminName=@AdminName and adminPasswd=@PassWord", parms, "admin");
+	}
+	//管理员密码修改
+	public int AdminPasswdChange(sql_admin admin,string newpasswd)
+	{
+		SqlParameter[] parms ={
+								 data.MakeInParam("@AdminName",SqlDbType.VarChar,50,admin.admin_name),
+								 data.MakeInParam("@OldPassWord",SqlDbType.VarChar,50,admin.admin_password),
+								 data.MakeInParam("@NewPassWord",SqlDbType.VarChar,50,newpasswd),
+							 };
+		return data.RunProc("update admin set adminPasswd=@NewPassWord where adminName=@AdminName and adminPasswd=@OldPassWord",parms);
+	}
+
+	//会员管理
+	//获取所有会员
+	public DataSet GetAllUsers()
+	{
+		return data.RunProcReturn("select * from users","users");
+	}
+	//线下认证会员后由管理员更改用户的认证状态 status
+	public int AuthenticateUserStatus(sql_admin admin, string username)
+	{
+		SqlParameter[] parms ={
+								 data.MakeInParam("@UserName",SqlDbType.VarChar,50,username),
+								// data.MakeInParam("@OldPassWord",SqlDbType.VarChar,50,admin.admin_password),
+								 //data.MakeInParam("@NewPassWord",SqlDbType.VarChar,50,newpasswd),
+							 };
+		return data.RunProc("update users set status=1 where username=@UserName", parms);
+	}
+
+	//用户注册vip后由管理员更改用户的等级 rank
+	public int AuthenticateUserStatus(sql_admin admin, string username , int rank)
+	{
+		SqlParameter[] parms ={
+								 data.MakeInParam("@UserName",SqlDbType.VarChar,50,username),
+								 data.MakeInParam("@Rank",SqlDbType.TinyInt,32,rank),
+								// data.MakeInParam("@OldPassWord",SqlDbType.VarChar,50,admin.admin_password),
+								 //data.MakeInParam("@NewPassWord",SqlDbType.VarChar,50,newpasswd),
+							 };
+		return data.RunProc("update users set grank=1 where username=@UserName", parms);
+	}
+	//删除会员
+	public int DeleteUserByName(string username)
+	{
+		SqlParameter[] parms ={
+								 data.MakeInParam("@UserName",SqlDbType.VarChar,50,username),
+								// data.MakeInParam("@Rank",SqlDbType.TinyInt,32,rank),
+								// data.MakeInParam("@OldPassWord",SqlDbType.VarChar,50,admin.admin_password),
+								 //data.MakeInParam("@NewPassWord",SqlDbType.VarChar,50,newpasswd),
+							 };
+		SqlParameter[] parms1 ={
+								 data.MakeInParam("@UserName",SqlDbType.VarChar,50,username),
+								// data.MakeInParam("@Rank",SqlDbType.TinyInt,32,rank),
+								// data.MakeInParam("@OldPassWord",SqlDbType.VarChar,50,admin.admin_password),
+								 //data.MakeInParam("@NewPassWord",SqlDbType.VarChar,50,newpasswd),
+							 };
+		SqlParameter[] parms2 ={
+								 data.MakeInParam("@UserName",SqlDbType.VarChar,50,username),
+								// data.MakeInParam("@Rank",SqlDbType.TinyInt,32,rank),
+								// data.MakeInParam("@OldPassWord",SqlDbType.VarChar,50,admin.admin_password),
+								 //data.MakeInParam("@NewPassWord",SqlDbType.VarChar,50,newpasswd),
+							 };
+		data.RunProc("delete from users where username=@UserName", parms);
+		data.RunProc("delete from userinfo where username=@UserName",parms1);
+		data.RunProc("delete from userinfodetail where username=@UserName",parms2);
+		return 0;
+	}
+	//修改会员五个基础属性 username phone email status grank
+	public int EditUserBasicAttributes(string username,string useremail,string userphone,int status, int rank)
+	{
+		SqlParameter[] parms ={
+								 data.MakeInParam("@UserName",SqlDbType.VarChar,50,username),
+								 data.MakeInParam("@UserEmail",SqlDbType.VarChar,50,useremail),
+								 data.MakeInParam("@UserPhone",SqlDbType.VarChar,50,userphone),
+								 data.MakeInParam("@Status",SqlDbType.TinyInt,32,status),
+								 data.MakeInParam("@Rank",SqlDbType.TinyInt,32,rank),
+								// data.MakeInParam("@OldPassWord",SqlDbType.VarChar,50,admin.admin_password),
+								 //data.MakeInParam("@NewPassWord",SqlDbType.VarChar,50,newpasswd),
+							 };
+		return data.RunProc("update users set username=@UserName,email=@UserEmail,phone=@UserPhone,status=@Status,grank=@Rank where username=@UserName", parms);
+	}
+	//活动管理
+
+	public sql_admin()
+	{
+		//
+		// TODO: 在此处添加构造函数逻辑
+		//
+	}
+}

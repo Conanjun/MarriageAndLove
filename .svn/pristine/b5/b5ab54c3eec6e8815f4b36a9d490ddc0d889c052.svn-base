@@ -1,0 +1,105 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="login_by_account.aspx.cs" Inherits="login_login_by_account" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
+    <style>
+        .login-bottom input[type="text"] {
+  outline: none;
+  color:#000;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 12px 12px 10px;
+  border: 1px solid #000;
+  border-style: outset;
+  background: #fff;
+  margin: 0px 0px 15px 0px;
+  width: 93%;
+  
+}
+  .login-bottom input[type="password"]{
+  outline: none;
+  color:#000;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 12px 12px 10px;
+  border: 1px solid #000;
+  border-style: outset;
+  background: #fff;
+  margin: 0px 0px 15px 0px;
+  width: 93%;
+
+} 
+    .login-bottom input[type="text1"] {
+  outline:none;
+  color:#000;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 12px 12px 10px;
+  border: 1px solid #000;
+  border-style: outset;
+  background: #fff;
+  margin: 0px 0px 15px 0px;
+  width: 41%;
+  
+
+    }
+
+
+  .login-bottom input[type="submit"] {
+     color: #000;
+     font-size: 15px;
+     font-weight: 600;
+     padding: 12px 19px;
+     width: 100%;
+     margin: 25px 0px 5px 0px;
+     border: none;
+     display: inline-block;
+     cursor: pointer;
+     outline: none;
+     background: #fec200; 
+         }
+  .T1,.T2,.T3{
+      color:#fff;
+      font-weight:500;
+      height:60px;
+  }
+
+    </style>
+ 
+
+	<div class="login-bottom" align="center">
+	<form id="form1" runat="server" class="form-horizontal" >
+		<fieldset>
+			<legend>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font  size="5" face="verdana" color="white">账户登录</font></legend>
+			<br />
+            <br />
+            <table ID="Table1" runat="server" height="250px" width="500px" align="center">
+			<tr><td class="T1" >用户名:</td><td >
+				<asp:TextBox ID="username" runat="server" align="right" OnTextChanged="username_TextChanged"></asp:TextBox>
+				</td></tr>
+			<tr><td class="T2"> 密 码:</td><td >
+				<asp:TextBox ID="password" runat="server" align="right" OnTextChanged="password_TextChanged" TextMode="Password"></asp:TextBox>
+				</td></tr>
+			<tr><td  class="T3">验证码:</td><td >
+				<asp:Image ID="image_check" ImageUrl="validate_code.aspx" runat="server" />	
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<asp:TextBox ID="validate_code" runat="server"  type="text1"    OnTextChanged="validate_code_TextChanged"></asp:TextBox>
+				</td></tr>
+                <tr><td align="center"><asp:Button ID="submit_button" runat="server"   width="120px" OnClick="Button1_Click" Text="登录" />&nbsp;&nbsp;
+				</td>
+                <td align="right   ">
+					<asp:Button ID="register_button" runat="server" width="120px" Text="注册" OnClick="register_button_Click"  />
+				</td>
+
+                </tr>
+                    
+			</table>
+		</fieldset>
+    </form>
+        </div>
+</asp:Content>
+
+    

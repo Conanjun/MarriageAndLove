@@ -1,0 +1,46 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="actionapply.aspx.cs" Inherits="actionapply" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+	<%-- Ajax 实时判断用户名是否存在--%>
+	
+	<script type="text/javascript">
+
+	</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<form id="form1" runat="server" class="form-horizontal">
+		<fieldset>
+			<legend>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 活动报名</legend>
+			<table ID="Table1" runat="server" height="250px" width="500px">
+                <tr><td width="200">&nbsp;&nbsp; &nbsp;活动</td><td width="200">
+                <asp:DropDownList ID="activity" runat="server" AutoPostBack="True" onselectedindexchanged="Activity_SelectedIndexChanged"></asp:DropDownList>
+				</td>
+				</tr>
+                <tr><td width="200">&nbsp;&nbsp; &nbsp;姓名</td><td width="200">
+				<asp:TextBox ID="name" runat="server"></asp:TextBox>
+				</td>
+				</tr>
+			
+	
+			
+			<tr><td width="200">&nbsp;&nbsp; &nbsp;性别</td><td width="200">
+				<asp:RadioButton ID="male" Text="男" runat="server" GroupName="Sex" />
+                <asp:RadioButton ID="female" Text="女" runat="server" GroupName="Sex"/> 
+				</td><td width="100"><div id="check_user_result"></div></td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 手机号码</td><td width="300">
+				<asp:TextBox ID="telephone" runat="server"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 邮箱</td><td width="200">
+				<asp:TextBox ID="email" runat="server"></asp:TextBox>
+				</td><td width="100"><div id="check_password_result">test</div></td></tr>
+			
+			<tr><td width="300">
+				<asp:Button ID="apply_button" runat="server" Text="报名" OnClick="apply_button_Click" style="height: 21px" />
+				</td></tr>
+			</table>
+		</fieldset>
+    </form>
+	
+</asp:Content>
+
+ 

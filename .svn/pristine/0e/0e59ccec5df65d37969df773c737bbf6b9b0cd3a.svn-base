@@ -1,0 +1,71 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="register_by_email.aspx.cs" Inherits="register_register_by_email" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+	<%-- Ajax 实时判断用户名是否存在--%>
+	
+	<script type="text/javascript">
+		function IsExistUser() {
+			$.ajax({
+				type: "GET",
+				url: "IsExistUser.aspx",
+				data: "check_username=" + $("#<%=username.ClientID%>").val(),
+				success: function (msg) {
+					$("#check_user_result").text(msg);
+				}
+
+			});
+		}
+		function IsPasswdSame() {
+			alert($("#<%=password.ClientID%>").val() +" "+ $("#<%=password_check.ClientID%>").val())
+			alert($("#<%=password.ClientID%>").val() == $("#<%=password_check.ClientID%>").val());
+			if ($("#<%=password.ClientID%>").val() == $("#<%=password_check.ClientID%>").val()) {
+				$("#check_password_result").text("密码一致");
+			} else {
+				$("#check_password_result").text("密码不一致");
+			}
+		}
+	</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<form id="form1" runat="server" class="form-horizontal">
+		<fieldset>
+			<legend>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 邮箱注册</legend>
+			<table ID="Table1" runat="server" height="250px" width="500px">
+			<tr><td width="200">&nbsp;&nbsp; &nbsp;邮箱地址</td><td width="200">
+				<asp:TextBox ID="email" runat="server" OnTextChanged="email_TextChanged"></asp:TextBox>
+				</td>
+				<%--
+					验证邮箱处有bug，暂时搁置
+					<td width="100">
+				<asp:RegularExpressionValidator EnableClientScript="false" ID="check_email" runat="server" ControlToValidate="TextBox2" ErrorMessage="邮件格式不正确" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                Font-Size="12px"></asp:RegularExpressionValidator></td>
+				 --%>
+				</tr>
+			
+	
+			
+			<tr><td width="200">&nbsp;&nbsp; &nbsp;用户名</td><td width="200">
+				<asp:TextBox ID="username" runat="server" onchange="IsExistUser()"></asp:TextBox>
+				</td><td width="100"><div id="check_user_result">test</div></td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 密 码</td><td width="300">
+				<asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 确认密码</td><td width="200">
+				<asp:TextBox ID="password_check" runat="server" onchange="IsPasswdSame()" TextMode="Password" OnTextChanged="password_check_TextChanged"></asp:TextBox>
+				</td><td width="100"><div id="check_password_result">test</div></td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 验证 码</td><td width="300">
+				<asp:Image ID="image_check" ImageUrl="validate_code.aspx" runat="server" />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<asp:TextBox ID="validate_code" runat="server" Width="73px" OnTextChanged="validate_code_TextChanged"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;<asp:Button ID="submit_button" runat="server" OnClick="Button1_Click" Text="登陆" />
+				</td><td width="300">
+					<asp:Button ID="register_button" runat="server" Text="注册" OnClick="register_button_Click" style="height: 21px" />
+				</td></tr>
+			</table>
+		</fieldset>
+    </form>
+	
+</asp:Content>
+
+ 

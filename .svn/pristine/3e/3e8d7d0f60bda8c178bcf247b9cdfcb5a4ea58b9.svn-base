@@ -1,0 +1,58 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="userdefault.aspx.cs" Inherits="user_auth_user_common_user_userdefault" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+	 <script type="text/javascript">
+		function getChatAsk() {
+			$.getJSON("chat/chat_notice.ashx", { invited_username: "<%=Session["username"]%>" }, function (result) {
+				if (result.IfHasInvite == 1) {
+					var r = confirm(result.launch_username + "邀你聊天，点击确定同意聊天，点击取消拒绝");
+					if (r == true) {
+						window.location.href = "chat/chatroom.aspx";
+					}
+				}
+			}
+			)
+		}
+	 	setInterval(getChatAsk, 10000);//每10秒检查一次是否有聊天申请
+	</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
+<div class="container">
+  <div id="carousel1" class="carousel slide">
+  	<div class="carousel-inner">
+      <div class="item active">
+      <img src="http://placehold.it/940x360/C24704/FFFFFF&text=Wordpress" alt="">
+      <div class="carousel-caption">
+      <h4></h4>          
+      </div>
+      </div>
+	  
+      <div class="item">
+      <img src="http://placehold.it/940x360/FFEB79&text=Joomla" alt="">
+      <div class="carousel-caption">
+      <h4></h4>
+      </div>
+      </div>
+	  
+      <div class="item">
+      <img src="http://placehold.it/940x360/A0E0A9/FFFFFF&text=Drupal" alt="">
+      <div class="carousel-caption">
+      <h4></h4>
+      </div>
+      </div>
+    </div>
+    <a href="#carousel1" data-slide="prev" class="left carousel-control">‹</a>
+    <a href="#carousel1" data-slide="next" class="right carousel-control">›</a>
+   </div>
+
+  
+</div>
+    <br />
+    <br />
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="background" runat="server">
+
+</asp:Content>

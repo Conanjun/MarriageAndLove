@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+/*
+ 姻缘匹配算法基本思路:
+1.鉴于会员数较少，直接遍历匹配(实际应该优先匹配积分较高的会员)
+2.根据该会员的择偶表(choose表)，查看(userinfo和userinfodetail表中)符合其对应项的匹配要求则匹配程度match_score加1
+3.选出匹配程度最高的一名显示
+ */
+public partial class search_for_fate_select_search : System.Web.UI.Page
+{
+	choose mychoose = new choose();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+		if (Session["username"] != null)
+		{
+			mychoose.Username = Session["username"].ToString();
+			//先暂时用userinfo和choose匹配
+
+		}
+		else
+		{
+			WebMessageBox.Show("sessioin失效，请重新登录");
+		}
+    }
+}

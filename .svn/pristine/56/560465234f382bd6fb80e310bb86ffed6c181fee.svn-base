@@ -1,0 +1,39 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="login" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+      <style>
+          .button{
+              font-size:20px;
+              font-weight:200;
+              color:#c617e8;
+              padding:12px;
+              border:1px;
+              margin:10px;
+          }
+      </style>
+            <br />
+			<br />
+			<br />
+		<form id="form1" runat="server" class="form-horizontal" align="center">
+    	<div>
+			<span class="button"><asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">账号登陆</asp:LinkButton>
+			<br />
+			<br />
+			<br />
+			<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">邮箱登陆</asp:LinkButton>
+			<br />
+			<br />
+			<br />
+			<asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">手机登陆</asp:LinkButton>
+			<br />
+			<br />
+			<br />
+			<asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">忘记密码</asp:LinkButton></span>
+    	</div>
+		</form>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="background" runat="server">
+
+</asp:Content>

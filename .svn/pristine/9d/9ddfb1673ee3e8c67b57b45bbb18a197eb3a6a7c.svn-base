@@ -1,0 +1,58 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="forget_password_FindByEmail.aspx.cs" Inherits="login_forget_password_FindByEmail" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+	<script>
+        onload = function () {
+            var container2 = document.getElementById("vCode2");
+            var code2 = new vCode(container2, {
+                len: 4,
+                bgColor: "#444444",
+                colors: [
+                    "#DDDDDD",
+                    "#DDFF77",
+                    "#77DDFF",
+                    "#99BBFF",
+                    "#EEEE00"
+                ]
+            });
+            document.getElementById("code2").addEventListener("blur", function () {
+            	if (!code2.verify(document.getElementById("code2").value)) { alert("验证码错误"); document.getElementById("code2").value =""};
+            }, false);
+        };
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<form id="form1" runat="server" class="form-horizontal">
+		<fieldset>
+			<legend>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 发送邮件找回密码</legend>
+			<table ID="Table1" runat="server" height="250px" width="500px">
+			<tr><td width="200">&nbsp;&nbsp; &nbsp;邮箱地址</td><td width="200">
+				<asp:TextBox ID="email" runat="server" OnTextChanged="email_TextChanged"></asp:TextBox>
+				</td>
+				<%--
+					验证邮箱处有bug，暂时搁置
+					<td width="100">
+				<asp:RegularExpressionValidator EnableClientScript="false" ID="check_email" runat="server" ControlToValidate="TextBox2" ErrorMessage="邮件格式不正确" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                Font-Size="12px"></asp:RegularExpressionValidator></td>
+				 --%>
+			</tr>
+			
+	
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 验证 码</td><td width="300">
+				<input type="text" id="code2" style="display:inline-block;width:100px;outline:none;position:relative;top:-20px;" maxlength="4" />
+				 <div id="vCode2" style="width:100px; height: 40px; border: 1px solid #ccc; display: inline-block;"></div>
+				<%--<asp:Image ID="image_check" ImageUrl="validate_code.aspx" runat="server" />--%>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<%--<asp:TextBox IkD="validate_code" runat="server" Width="73px" OnTextChanged="validate_code_TextChanged"></asp:TextBox>--%>
+				</td></tr>
+                <tr><td width="300">
+                    <asp:Button ID="findpassword_button" runat="server" Text="发送" OnClick="findpassword_button_Click" style="height: 21px" />
+				</td></tr>
+			</table>
+		</fieldset>
+    </form>
+	
+
+</asp:Content>
+

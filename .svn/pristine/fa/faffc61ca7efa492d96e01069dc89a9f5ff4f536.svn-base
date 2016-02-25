@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+public partial class register_emailvalidate : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+       // string username = Request["username"].ToString();
+        //string activeCode = Request["activecode"].ToString();
+        string username = Request.QueryString["username"];
+        string activeCode = Request.QueryString["activecode"];
+        string checkusername;
+        string checkactivecode;
+        //2判断id为id的记录是否存在
+        //连接数据库
+        string sqlCheckUsername = "select* from activecode where username=@username and activecode=@activeCode";
+        string sqlCheckStatus = "select status from users where username=@username";
+        string up = "update users set status=1 where username=@username";
+        string upd = "delete from activecode where username=@username and activecode=@activeCode";
+        SqlConnection con = new SqlConnection("server=.;database=MarriageAndLove;uid=sa;pwd=conan;");
+        con.Open();
+        SqlCommand comCheckUserStatus = new SqlCommand(sqlCheckUsername, con);
+        SqlCommand comCheckStatus = new SqlCommand(sqlCheckStatus, con);
+        comCheckUserStatus.Parameters.AddWithValue("@username", username);
+        comCheckUserStatus.Parameters.AddWithValue("@activecode", activeCode);
+        SqlDataAdapter checkuser=new SqlDataAdapter(comCheckUserStatus);
+       // DataSet ds1=new DataSet();
+       // checkuser.Fill(ds1);
+        string user=Convert.ToString(ds1.Tables[0].Rows[0][0]);
+        string active=Convert.ToString(ds1.Tables[0].Rows[0][1]);
+        
+        //SqlDataReader datareader = null;
+        //datareader = comCheckUserStatus.ExecuteReader();
+        if(user==username&&active==activeCode)
+        {
+        SqlCommand upStatus = new SqlCommand(up, con);
+        upStatus.Parameters.AddWithValue("@username", username);
+        upStatus.ExecuteNonQuery();
+        SqlDataAdapter checkstatus=new SqlDataAdapter(comCheckStatus);
+        comCheckStatus.Parameters.AddWithValue("@username", username);
+        DataSet ds2=new DataSet();
+        checkstatus.Fill(ds2);
+        short cstatus=Convert.ToInt16(ds2.Tables[0].Rows[0][0]);
+        
+            //datareader=comCheckStatus.ExecuteReader();
+                if (cstatus==1)
+                {
+                    SqlCommand upac = new SqlCommand(upd, con);
+                    upac.Parameters.AddWithValue("@username", username);
+                    upac.Parameters.AddWithValue("@activecode", activeCode);
+                    upac.ExecuteNonQuery();
+                    Response.Write("激活成功!<a href='../user/auth_user/common_user/userdefault.aspx'>返回主页</a>");
+                }
+                else
+                {
+                    Response.Write("激活失败，请重新激活！");
+                }
+            
+        }
+        else
+        {
+            Response.Write("用户不存在！");
+        }
+    }
+}

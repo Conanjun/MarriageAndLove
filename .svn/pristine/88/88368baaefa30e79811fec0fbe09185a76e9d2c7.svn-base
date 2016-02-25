@@ -1,0 +1,27 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="login_by_phone.aspx.cs" Inherits="login_login_by_phone" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<form id="form1" runat="server" class="form-horizontal">
+    <fieldset>
+		<table ID="Table1" runat="server" height="250px" width="500px">
+			<legend>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 手机登陆</legend>
+			<tr><td width="200">&nbsp;&nbsp; &nbsp;手机号</td><td width="300">
+				<asp:TextBox ID="phone" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 密 码</td><td width="300">
+				<asp:TextBox ID="password" runat="server" OnTextChanged="password_TextChanged"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 验证 码</td><td width="300">
+				<asp:Image ID="image_check" ImageUrl="validate_code.aspx" runat="server" />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<asp:TextBox ID="validate_code" runat="server" Width="73px" OnTextChanged="validate_code_TextChanged"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;<asp:Button ID="submit_button" runat="server" OnClick="Button1_Click" Text="登陆" />
+				</td><td width="300">
+					<asp:Button ID="register_button" runat="server" Text="注册" OnClick="register_button_Click" />
+				</td></tr>
+		</table>
+    </fieldset>
+    </form>
+</asp:Content>

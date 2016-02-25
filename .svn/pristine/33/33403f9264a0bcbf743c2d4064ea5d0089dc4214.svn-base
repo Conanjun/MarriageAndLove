@@ -1,0 +1,127 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">  
+    <!-- bootstrap-css -->
+	<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// bootstrap-css -->
+    <!-- css -->
+	<link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+    <!--// css -->
+	<script src="static/js/jquery-1.11.0.min.js"></script>
+    </asp:Content>
+    
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+        <style>
+            .img{
+                width:250px;
+                height:205px;
+            }
+        </style>
+<!-- header nav -->
+	<div class="header-nav">
+		<div class="container">
+			<div class="header">
+
+				<div class="header-info-right">
+					<div class="header cbp-spmenu-push">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+						
+	
+
+<!--clients-->
+<div class="clients">
+	<div class="client-grids" style:"height=630px">
+		<div class="client-grid">
+			<a href="#"><img src="static/image/21.jpg" class="img" alt=""/></a>
+
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/22.jpg" class="img" alt=""/></a>
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/23.jpg" class="img" alt=""/></a>
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/24.jpg" class="img" alt=""/></a>
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/25.jpg" class="img" alt=""/></a>
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/26.jpg" class="img" alt=""/></a>
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/27.jpg" class="img"" alt=""/></a>
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/28.jpg" class="img" alt=""/></a>
+			
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/31.jpg" class="img" alt=""/></a>
+			
+		</div>
+        <div class="client-grid">
+			<a href="#"><img src="static/image/32.jpg" class="img" alt=""/></a>
+			
+		</div>
+        <div class="client-grid">
+			<a href="#"><img src="static/image/33.jpg" class="img" alt=""/></a>
+			
+		</div>
+
+        <div class="client-grid">
+			<a href="#"><img src="static/image/35.jpg" class="img" alt=""/></a>
+			
+		</div>
+        <div class="client-grid">
+			<a href="#"><img src="static/image/36.jpg" class="img" alt=""/></a>
+			
+		</div>
+        <div class="client-grid">
+			<a href="#"><img src="static/image/37.jpg" class="img" alt=""/></a>
+			
+		</div>
+        <div class="client-grid">
+			<a href="#"><img src="static/image/38.jpg" class="img" alt=""/></a>
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	
+</div>
+<!-- //clients -->
+        <!--footer-->
+      
+<div class="footer">
+	<div class="container">
+		<div class="footer-grids">
+			<div class="footer-left">
+
+                <p>Producer Team:HuBin WangFeng WangYa SunHaoPeng ChenTianWei XieYu</p>
+			</div>
+			
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+            
+<!--//footer-->
+
+    </asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="background" runat="server">
+
+</asp:Content>

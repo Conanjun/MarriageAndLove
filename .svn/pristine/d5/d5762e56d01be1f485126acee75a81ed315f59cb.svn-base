@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using System.Data;
+using System.Data.SqlClient;
+
+//根据传入的get参数article获取评论
+public partial class user_auth_user_common_user_myissue_comment : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+		if (Session["username"] != null)
+		{
+			r_nick.Text = Session["username"].ToString();
+		}
+		else
+		{
+			WebMessageBox.Show("Session无效,请重新登录","../../../../index.aspx");
+		}
+    }
+
+	//获取文章信息
+	public void get_News()
+	{
+		SqlConnection myConnection = new SqlConnection("server=.;database=MarriageAndLove;uid=sa;pwd=conan;");
+		Response.Write("<table width=100%>");
+		string cmdText = "select * from article where article_id = " + Request.QueryString["article_id"] + "";
+		SqlCommand myCommand = new SqlCommand(cmdText, myConnection);
+		myConnection.Open();
+		SqlDataReader read = myCommand.ExecuteReader();
+		while (read.Read())
+		{
+			Response.Write("<tr><td  bgcolor=eeeeee><div align=center><font style='FONT-SIZE: 30px' color=black><strong>" + read["article_title"].ToString() + "<strong></font></div></td></tr><tr><td><font style='FONT-SIZE: 22px'>" + read["article_content"].ToString() + "</font></td></tr><tr><td><div align=right><font style='FONT-SIZE: 12px'>" + read["username"].ToString() + "发表于" + read["article_date"].ToString() + "</font></div></td></tr>");
+		}
+		Response.Write("</table>");
+		myConnection.Close();
+	}
+
+	//获得评论信息
+	public void get_Replay()
+	{
+		SqlConnection myConnection = new SqlConnection("server=.;database=MarriageAndLove;uid=sa;pwd=conan;");
+		Response.Write("<table width=100%><font color=blue>评论回复<font>:");
+		string cmdText = "select * from reply where article_id =" + Request.QueryString["article_id"] + "";
+		SqlCommand myCommand = new SqlCommand(cmdText, myConnection);
+
+		myConnection.Open();
+		SqlDataReader read = myCommand.ExecuteReader(CommandBehavior.CloseConnection);
+		while (read.Read())
+		{
+			Response.Write("<tr height=30><td><font style='FONT-SIZE: 12px'>" + read[3].ToString() + "</font></td></tr><tr><td bgcolor=f8f8f8><div align=right><font style='FONT-SIZE: 12px'>" + read[1].ToString() + "评论于" + read[4].ToString() + "</font></div></td></tr>");
+		}
+		Response.Write("</table>");
+		myConnection.Close();
+	}
+
+	//评论文章
+	protected void replay_Click(object sender, EventArgs e)
+	{
+		SqlConnection myConnection = new SqlConnection("server=.;database=MarriageAndLove;uid=sa;pwd=conan;");
+		if (Page.IsPostBack)
+		{
+			if (r_nick.Text.Trim() == "" || r_title.Text.ToString().Trim() == "" || r_content.InnerText.Trim() == "")
+			{
+				Response.Write("<div align=center><li>昵称,标题,内容不能为空!</li><li><a href=javascript:history.back()>点此返回</a>");
+				Response.End();
+			}
+			else
+			{
+				string cmdText = "insert into reply (reply_username,reply_title, reply_content, reply_date, article_id, username) values ('" + r_nick.Text + "','" + r_title.Text + "','" + r_content.InnerText + "','" + DateTime.Now.ToString() + "'," + Request.QueryString["article_id"] + ",'" + Request.Form["listtype"] + "')";
+				SqlCommand myCommand = new SqlCommand(cmdText, myConnection);
+
+				try
+				{
+					myConnection.Open();
+					myCommand.ExecuteNonQuery();
+					myCommand.Dispose();
+				}
+				catch (SqlException ex)
+				{
+					throw new Exception(ex.Message, ex);
+				}
+				finally
+				{
+					myConnection.Close();
+					//Response.Redirect("Show.aspx?news_id=" + Request.QueryString["article_id"] + "");
+				}
+			}
+		}
+	}
+
+	public void getList()
+	{
+		SqlConnection myConnection = new SqlConnection("server=.;database=MarriageAndLove;uid=sa;pwd=conan;");
+		string sql = "select username from article where article_id=" + Request.QueryString["article_id"] + "";
+		Response.Write("<select name='listtype'>");
+		SqlCommand myCmd = new SqlCommand(sql, myConnection);
+		myConnection.Open();
+		SqlDataReader read = myCmd.ExecuteReader(CommandBehavior.CloseConnection);
+		while (read.Read())
+		{
+			Response.Write("<option value=" + read[0].ToString() + ">" + read["username"].ToString() + "</option>");
+
+		}
+		Response.Write("</select>");
+		myConnection.Close();
+	}
+}

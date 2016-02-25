@@ -1,0 +1,35 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="login_by_account.aspx.cs" Inherits="login_login_by_account" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div align="center">
+	<form id="form1" runat="server" class="form-horizontal" >
+		<fieldset>
+			<legend>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font  size="5" face="verdana" color="white">账户登录</font></legend>
+			<br />
+            <br />
+            <table ID="Table1" runat="server" height="250px" width="500px" align="center">
+			<tr><td width="200">&nbsp;&nbsp; &nbsp;用户名</td><td width="300">
+				<asp:TextBox ID="username" runat="server" OnTextChanged="username_TextChanged"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 密 码</td><td width="300">
+				<asp:TextBox ID="password" runat="server" OnTextChanged="password_TextChanged" TextMode="Password"></asp:TextBox>
+				</td></tr>
+			<tr><td width="200">&nbsp;&nbsp;&nbsp;&nbsp; 验证 码</td><td width="300">
+				<asp:Image ID="image_check" ImageUrl="validate_code.aspx" runat="server" />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<asp:TextBox ID="validate_code" runat="server" Width="73px" OnTextChanged="validate_code_TextChanged"></asp:TextBox>
+				</td></tr>
+                <tr><td width="200">&nbsp;&nbsp;<asp:Button ID="submit_button" runat="server" OnClick="Button1_Click" Text="登录" />
+				</td><td width="300">
+					<asp:Button ID="register_button" runat="server" Text="注册" OnClick="register_button_Click" style="height: 21px" />
+				</td></tr>
+                    
+			</table>
+		</fieldset>
+    </form>
+        </div>
+</asp:Content>
+
+    

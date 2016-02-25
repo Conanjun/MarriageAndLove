@@ -1,0 +1,45 @@
+﻿<%@ WebHandler Language="C#" Class="GetNearbyUsers" %>
+
+using System;
+using System.Collections;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+using System.Xml.Linq;
+using System.IO;
+using System.Collections.Generic;
+using System.Text;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
+
+public class NearbyUsers
+{
+	public int nearby_users_count{get;set;}
+	public string[] nearby_users{get;set;}
+}
+
+public class GetNearbyUsers : IHttpHandler {
+    public void ProcessRequest (HttpContext context) {
+		//暂时写死，等后台接口写好后再改
+		int nearby_users_count_temp = 4;
+		string[] nearby_users = { "广州火车站", "广州塔（赤岗塔）", "广州动物园", "天河公园" };
+		NearbyUsers my_nearby_users = new NearbyUsers();
+		my_nearby_users.nearby_users_count = nearby_users_count_temp;
+		my_nearby_users.nearby_users = nearby_users;
+		JavaScriptSerializer serializer = new JavaScriptSerializer();
+		string JsonStr = serializer.Serialize(my_nearby_users);
+		context.Response.Write(JsonStr);
+		context.Response.End();
+       // context.Response.ContentType = "text/plain";
+       // context.Response.Write("Hello World");
+    }
+ 
+    public bool IsReusable {
+        get {
+            return false;
+        }
+    }
+
+}

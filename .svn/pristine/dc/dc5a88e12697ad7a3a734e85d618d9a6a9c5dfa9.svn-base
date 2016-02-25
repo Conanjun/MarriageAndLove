@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+/*
+ 姻缘匹配算法基本思路:
+1.鉴于会员数较少，直接遍历匹配(实际应该优先匹配积分较高的会员)
+2.根据该会员的择偶表(choose表)，查看(userinfo和userinfodetail表中)符合其对应项的匹配要求则匹配程度match_score加1
+3.选出匹配程度最高的一名显示
+ */
+public partial class search_for_fate_select_search : System.Web.UI.Page
+{
+	choose mychoose = new choose();
+	sql_user myuser = new sql_user();
+	//匹配的用户名及其相应的匹配分数
+	string[] match_username;
+	int match_user_count;
+	int[] match_score;
+
+	//匹配项
+	string sex;
+	string option1;
+	string option2;
+	string option3;
+	string option4;
+	string option5;
+	string option6;
+	string option7;
+	string option8;
+	string option9;
+	string option10;
+	string option11;
+	string option12;
+	int age;
+	string marriagestatus;
+	string degree;
+	string height;
+	string locationarea;
+	string ishaiimage;
+	string salary;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+		if (Session["username"] != null)
+		{
+			myuser.UserName=mychoose.Username = Session["username"].ToString();
+			//先暂时用userinfo和choose匹配
+			//获取用户的择偶要求
+			SetMatchOption(mychoose);
+			//获取会员用来匹配的信息
+			SetMatchUsernameAndMatchUserCount(myuser);
+			//遍历要匹配的用户并并设置匹配程度数组
+			for (int i = 0; i < match_user_count; i++)
+			{
+				//SetMatchUserCount(UserInfo match_user);
+			}
+		}
+		else
+		{
+			WebMessageBox.Show("sessioin失效，请重新登录");
+		}
+    }
+	public void SetMatchOption(choose mychoose)
+	{
+		sex = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["csex"].ToString();
+		option1 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option1"].ToString();
+		option2 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option2"].ToString();
+		option3 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option3"].ToString();
+		option4 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option4"].ToString();
+		option5 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option5"].ToString();
+		option6 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option6"].ToString();
+		option7 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option7"].ToString();
+		option8 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option8"].ToString();
+		option9 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option9"].ToString();
+		option10 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option10"].ToString();
+		option11 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option11"].ToString();
+		option12 = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["option12"].ToString();
+		age = Convert.ToInt32(mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["age"]);
+		marriagestatus = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["marriagestatus"].ToString();
+		degree = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["degree"].ToString();
+		height = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["height"].ToString();
+		locationarea = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["locationarea"].ToString();
+		ishaiimage = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["ishaiimage"].ToString();
+		salary = mychoose.SelectChoose(mychoose).Tables[0].Rows[0]["salary"].ToString();
+	}
+
+	public void SetMatchUsernameAndMatchUserCount(sql_user matchuser)
+	{
+		match_user_count = matchuser.GetAllUsername(matchuser).Tables[0].Rows.Count;
+		match_username = new string[match_user_count];
+		for (int i = 0; i < match_user_count; i++)
+		{
+			match_username[i] = matchuser.GetAllUsername(matchuser).Tables[0].Rows[i]["username"].ToString();
+		}
+	}
+}

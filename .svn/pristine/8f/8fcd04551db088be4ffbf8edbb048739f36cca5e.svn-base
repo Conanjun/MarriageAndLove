@@ -1,0 +1,15 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="albums.aspx.cs" Inherits="user_auth_user_common_user_albums_albums" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <form id="form1" runat="server">
+        <%for(int i=0;i<count;i++){ %>
+        <img height="200" width="200" src="upload/<%=user%>/<%=imagename[i]%>" />
+        <%} %>
+        <asp:Button ID="Button1" runat="server" Text="上传图片" OnClick="Button1_Click" />
+    </form>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="background" Runat="Server">
+</asp:Content>
+

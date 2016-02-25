@@ -1,0 +1,218 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data;
+using System.Data.SqlClient;
+
+/// <summary>
+/// choose 的摘要说明
+/// </summary>
+
+//择偶要求接口
+public class choose
+{
+	private readonly DataBase data = new DataBase();
+	string username;//用户名
+	string csex;//性别
+	string option1;//家庭背景
+	string option2;//是否介意婚前公证财产
+	string option3;//是否介意经常跟好朋友出去玩
+	string option4;//最关注对方什么条件
+	string option5;//最不能忍受对方的缺点
+	string option6;//是否介意抽烟喝酒
+	string option7;//是否要小孩
+	string option8;//你是个浪漫的人吗
+	string option9;//婚后理财规划
+	string option10;//家务如何分配
+	string option11;//消费观
+	string option12;//如果有外遇
+
+	int age;//年龄
+	string marriagestatus;//婚姻状况
+	string degree;//学历
+	int height;//身高
+	string locationarea;//所在地区
+	string ishasimage;//是否有图片
+	string salary;//薪水
+
+	public string Username
+	{
+		get { return username; }
+		set { username = value; }
+	}
+	public string Csex
+	{
+		get { return csex; }
+		set { csex = value; }
+	}
+	public string Option1
+	{
+		get { return option1; }
+		set { option1 = value; }
+	}
+	public string Option2
+	{
+		get { return option2; }
+		set { option2 = value; }
+	}
+	public string Option3
+	{
+		get { return option3; }
+		set { option3 = value; }
+	}
+	public string Option4
+	{
+		get { return option4; }
+		set { option4 = value; }
+	}
+	public string Option5
+	{
+		get { return option5; }
+		set { option5 = value; }
+	}
+	public string Option6
+	{
+		get { return option6; }
+		set { option6 = value; }
+	}
+	public string Option7
+	{
+		get { return option7; }
+		set { option7 = value; }
+	}
+	public string Option8
+	{
+		get { return option8; }
+		set { option8 = value; }
+	}
+	public string Option9
+	{
+		get { return option9; }
+		set { option9 = value; }
+	}
+	public string Option10
+	{
+		get { return option10; }
+		set { option10 = value; }
+	}
+	public string Option11
+	{
+		get { return option11; }
+		set { option11 = value; }
+	}
+	public string Option12
+	{
+		get { return option12; }
+		set { option12 = value; }
+	}
+
+	public int Age
+	{
+		get { return age; }
+		set { age = value; }
+	}
+
+	public string Marriagestatus
+	{
+		get { return marriagestatus; }
+		set { marriagestatus = value; }
+	}
+	public string Degree
+	{
+		get { return degree; }
+		set { degree = value; }
+	}
+
+	public int Height
+	{
+		get { return height; }
+		set { height = value; }
+	}
+
+	public string Locationarea
+	{
+		get { return locationarea; }
+		set { locationarea = value; }
+	}
+	public string Ishasimage
+	{
+		get { return ishasimage; }
+		set { ishasimage = value; }
+	}
+	public string Salary
+	{
+		get { return salary; }
+		set { salary = value; }
+	}
+	public choose()
+	{
+		//
+		// TODO: 在此处添加构造函数逻辑
+		//
+	}
+	//往择偶表插入数据
+	public int InsertIntoChoose(choose mychoose)
+	{
+		SqlParameter[] parms ={
+							data.MakeInParam("@UserName",SqlDbType.VarChar,50,mychoose.username),
+							data.MakeInParam("@Csex",SqlDbType.VarChar,50,mychoose.csex),
+							data.MakeInParam("@Option1",SqlDbType.VarChar,50,mychoose.option1),
+							data.MakeInParam("@Option2",SqlDbType.VarChar,50,mychoose.option2),
+							data.MakeInParam("@Option3",SqlDbType.VarChar,50,mychoose.option3),
+							data.MakeInParam("@Option4",SqlDbType.VarChar,50,mychoose.option4),
+							data.MakeInParam("@Option5",SqlDbType.VarChar,50,mychoose.option5),
+							data.MakeInParam("@Option6",SqlDbType.VarChar,50,mychoose.option6),
+							data.MakeInParam("@Option7",SqlDbType.VarChar,50,mychoose.option7),
+							data.MakeInParam("@Option8",SqlDbType.VarChar,50,mychoose.option8),
+							data.MakeInParam("@Option9",SqlDbType.VarChar,50,mychoose.option9),
+							data.MakeInParam("@Option10",SqlDbType.VarChar,50,mychoose.option10),
+							data.MakeInParam("@Option11",SqlDbType.VarChar,50,mychoose.option11),
+							data.MakeInParam("@Option12",SqlDbType.VarChar,50,mychoose.option12),
+							data.MakeInParam("@Age",SqlDbType.Int,32,mychoose.age),
+							data.MakeInParam("@Marriagestatus",SqlDbType.VarChar,50,mychoose.marriagestatus),
+							data.MakeInParam("@Height",SqlDbType.Int,32,mychoose.height),
+							data.MakeInParam("@Locationarea",SqlDbType.VarChar,50,mychoose.locationarea),
+							data.MakeInParam("@Ishasimage",SqlDbType.VarChar,50,mychoose.ishasimage),
+							data.MakeInParam("@Salary",SqlDbType.VarChar,50,mychoose.salary),
+							data.MakeInParam("@Degree",SqlDbType.VarChar,50,mychoose.degree)
+							  };
+		return data.RunProc("insert into choose(username,csex,option1,option2,option3,option4,option5,option6,option7,option8,option9,option10,option11,option12,age,height,degree,marriagestatus,locationarea,ishasimage,salary) values(@UserName,@Csex,@Optioin1,@Optioin2,@Optioin3,@Optioin4,@Optioin5,@Optioin6,@Optioin7,@Optioin8,@Optioin9,@Optioin10,@Optioin11,@Optioin12,@Age,@Height,@Degree,@Marriagestatus,@Locationarea,@Ishasimage,@Salary)", parms);
+	}
+	//编辑择偶表数据
+	public int UpdateChoose(choose mychoose)
+	{
+		SqlParameter[] parms ={
+							data.MakeInParam("@UserName",SqlDbType.VarChar,50,mychoose.username),
+							data.MakeInParam("@Csex",SqlDbType.VarChar,50,mychoose.csex),
+							data.MakeInParam("@Option1",SqlDbType.VarChar,50,mychoose.option1),
+							data.MakeInParam("@Option2",SqlDbType.VarChar,50,mychoose.option2),
+							data.MakeInParam("@Option3",SqlDbType.VarChar,50,mychoose.option3),
+							data.MakeInParam("@Option4",SqlDbType.VarChar,50,mychoose.option4),
+							data.MakeInParam("@Option5",SqlDbType.VarChar,50,mychoose.option5),
+							data.MakeInParam("@Option6",SqlDbType.VarChar,50,mychoose.option6),
+							data.MakeInParam("@Option7",SqlDbType.VarChar,50,mychoose.option7),
+							data.MakeInParam("@Option8",SqlDbType.VarChar,50,mychoose.option8),
+							data.MakeInParam("@Option9",SqlDbType.VarChar,50,mychoose.option9),
+							data.MakeInParam("@Option10",SqlDbType.VarChar,50,mychoose.option10),
+							data.MakeInParam("@Option11",SqlDbType.VarChar,50,mychoose.option11),
+							data.MakeInParam("@Option12",SqlDbType.VarChar,50,mychoose.option12),
+							data.MakeInParam("@Age",SqlDbType.Int,32,mychoose.age),
+							data.MakeInParam("@Marriagestatus",SqlDbType.VarChar,50,mychoose.marriagestatus),
+							data.MakeInParam("@Height",SqlDbType.Int,32,mychoose.height),
+							data.MakeInParam("@Locationarea",SqlDbType.VarChar,50,mychoose.locationarea),
+							data.MakeInParam("@Ishasimage",SqlDbType.VarChar,50,mychoose.ishasimage),
+							data.MakeInParam("@Salary",SqlDbType.VarChar,50,mychoose.salary),
+							data.MakeInParam("@Degree",SqlDbType.VarChar,50,mychoose.degree)
+							  };
+		return data.RunProc("update choose set username=@UserName,csex=@Csex,option1=@Option1,option2=@Option2,option3=@Option3,option4=@Option4,option5=@Option5,option6=@Option6,option7=@Option7,option8=@Option8,option9=@Option9,option10=@Option10,option11=@Option11,option12=@Option12,age=@Age,height=@Height,degree=@Degree,marriagestatus=@Marriagestatus,locationarea=@Locationarea,ishasimage=@Ishasimage,salary=@Salary where username=@UserName", parms);
+	}
+	//查看择偶表数据
+	public DataSet SelectChoose(choose mychoose)
+	{
+		SqlParameter[] parms ={
+							data.MakeInParam("@UserName",SqlDbType.VarChar,50,mychoose.username)
+							  };
+		return data.RunProcReturn("select * from choose where username=@UserName",parms,"choose");
+	}
+}

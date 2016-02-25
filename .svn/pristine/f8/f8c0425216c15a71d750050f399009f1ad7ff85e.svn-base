@@ -1,0 +1,427 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/* start editing from here */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0;padding:0;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+.underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+/*--login form start here--*/ 
+body {
+  min-height: 880px;
+  padding: 100px 0px 0px 0px;
+   font-family: 'Arimo', sans-serif;
+   font-size: 100%;
+  background: #7abeef; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #7abeef 0%, #86c3ef 17%, #f7d576 46%, #f7d576 46%, #f9d05e 56%, #69b5ef 92%, #71b9ed 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#7abeef), color-stop(17%,#86c3ef), color-stop(46%,#f7d576), color-stop(46%,#f7d576), color-stop(56%,#f9d05e), color-stop(92%,#69b5ef), color-stop(100%,#71b9ed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(45deg,  #7abeef 0%,#86c3ef 17%,#f7d576 46%,#f7d576 46%,#f9d05e 56%,#69b5ef 92%,#71b9ed 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(45deg,  #7abeef 0%,#86c3ef 17%,#f7d576 46%,#f7d576 46%,#f9d05e 56%,#69b5ef 92%,#71b9ed 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(45deg,  #7abeef 0%,#86c3ef 17%,#f7d576 46%,#f7d576 46%,#f9d05e 56%,#69b5ef 92%,#71b9ed 100%); /* IE10+ */
+background: linear-gradient(45deg,  #7abeef 0%,#86c3ef 17%,#f7d576 46%,#f7d576 46%,#f9d05e 56%,#69b5ef 92%,#71b9ed 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abeef', endColorstr='#71b9ed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0px 0px 25px 0px;
+  text-align: center;
+}
+.login {
+  width: 27%;
+  margin: 0px auto;
+  background: rgba(87, 125, 154, 0.89);
+}
+.login-top {
+  padding: 25px 25px;
+  border-bottom: 1px solid #2B2B2B;
+  text-align: right;
+}
+.login-top  h2 {
+  text-align: left;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0px;
+}
+.whit-close img {
+  cursor: pointer;
+}
+.login-bottom {
+  padding: 23px 27px;
+  border-bottom: 0px solid #232323;
+}
+.login-bottom h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0px 0px 15px 0px;
+}
+.login-bottom input[type="text"] {
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 12px 12px 12px 10px;
+  border: 1px solid #000;
+  border-style: outset;
+  background: #3F3F3F;
+  margin: 0px 0px 15px 0px;
+  width: 93%;
+  -webkit-appearance: none;
+}
+.login-bottom input[type="password"]{
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 12px 12px 12px 10px;
+  border: 1px solid #000;
+  border-style: outset;
+  background: #3F3F3F;
+  margin: 0px 0px 15px 0px;
+  width: 93%;
+  -webkit-appearance: none;
+} 
+.login-bottom input[type="ContentPlaceHolder1_validate_code"]{
+     background:#fff;
+     width:250px;
+}
+
+.login-bottom input[type="submit"] {
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 19px;
+  width: 100%;
+  margin: 25px 0px 5px 0px;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  background: #fec200; 
+}
+.login-bottom input[type="submit"]:hover {
+  color:#fff;
+ background: #2690EF;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+.login-bottom h4 {
+  text-align: right;
+  margin: 0px 0px 6px 0px;
+}
+.login-bottom h4 a {
+  font-size: 15px;
+  font-weight: 400;
+  color: #76BCFA;
+}
+.login-bottom h4 a:hover {
+  color: #FFC401;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+label.checkbox {
+  float: left;
+}
+.login-bottom input[type="checkbox"] {
+  display: none;
+}
+.login-bottom.checkbox input {
+	position: absolute;
+	left: -9999px;
+}
+.login-bottom.checkbox i {
+	border-color: #fff;
+	transition: border-color 0.3s;
+	-o-transition: border-color 0.3s;
+	-ms-transition: border-color 0.3s;
+	-moz-transition: border-color 0.3s;
+	-webkit-transition: border-color 0.3s;
+	
+}
+.login-bottom.checkbox i:hover {
+	border-color:red;
+	
+}
+.login-bottom i:before {
+	background-color: #2da5da;	
+}
+.login-bottom  .rating label {
+	color: #ccc;
+	transition: color 0.3s;
+	-o-transition: color 0.3s;
+	-ms-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	-webkit-transition: color 0.3s;
+}
+.login-bottom .checkbox input + i:after {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.1s;
+	-o-transition: opacity 0.1s;
+	-ms-transition: opacity 0.1s;
+	-moz-transition: opacity 0.1s;
+	-webkit-transition: opacity 0.1s;
+}
+.login-bottom .checkbox input + i:after {
+	content: url(../images/tick.png) no-repeat 7px 1px;
+	top: 1px;
+	left: 1px;
+	width: 15px;
+	height: 15px;
+}
+.login-bottom .checkbox {
+	padding: 15px 0px 0px 22px;
+	font-size: 15.3px;
+   font-weight: 300;
+	line-height: 5px;
+	color:#fff;
+	cursor: pointer;
+	position: relative;
+	display: block;
+	float: right;
+}
+.login-bottom .checkbox:hover {
+	text-decoration: none;
+}
+.login-bottom  .checkbox i {
+  position: absolute;
+  top: 11px;
+  left: -1px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  outline: none;
+  border: 1px solid #000;
+  background: #494949;
+  background: -moz-linear-gradient(top, #494949 0%, #4c4c4c 34%, #474747 66%, #545454 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#494949), color-stop(34%,#4c4c4c), color-stop(66%,#474747), color-stop(100%,#545454));
+  background: -webkit-linear-gradient(top, #494949 0%,#4c4c4c 34%,#474747 66%,#434040 100%);
+  background: -o-linear-gradient(top, #494949 0%,#4c4c4c 34%,#474747 66%,#545454 100%);
+  background: -ms-linear-gradient(top, #494949 0%,#4c4c4c 34%,#474747 66%,#545454 100%);
+  background: linear-gradient(to bottom, #504848 0%,#635D5D 34%,#3C3737 66%,#483D3D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#545454',GradientType=0 );
+}
+.login-bottom  .checkbox input + i:after {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.1s;
+	-o-transition: opacity 0.1s;
+	-ms-transition: opacity 0.1s;
+	-moz-transition: opacity 0.1s;
+	-webkit-transition: opacity 0.1s;
+}
+.login-bottom .checkbox input + i:after {
+	color: #2da5da;
+}
+.login-bottom.checkbox input:checked + i,
+.login-bottom . input:checked + i {
+	border-color: #2da5da;	
+}
+.login-bottom .rating input:checked ~ label {
+	color: #2da5da;	
+}
+
+.login-bottom .checkbox input:checked + i:after {
+	opacity: 1;
+}
+.login p{
+	border-top: 1px solid #2B2B2B;
+	padding: 23px 15px 23px 28px;
+}
+.login p a{
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFC500;
+}
+.login p a:hover{
+	color:#fff;
+	transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+.copyright {
+  padding: 150px 0px 0px 0px;
+  text-align: center;
+}
+.copyright p {
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+}
+.copyright p a{
+  font-size: 15px;
+  font-weight: 400;
+  color:  #fff;
+}
+.copyright p a:hover{
+	color:#2690EF;
+	 transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*--meadia quiries start here--*/
+@media(max-width:1440px){
+body {
+  padding: 10em 0em;
+}
+}
+@media(max-width:1366px){
+body {
+  padding: 8em 0em;
+}
+}
+@media(max-width:1280px){
+.login {
+  width: 34%;
+}
+body {
+  padding: 4em 0em;
+}
+}
+@media(max-width:1024px){
+.login {
+  width: 40%;
+}
+body {
+  padding: 50px 0px 50px 0px;
+}
+}
+@media(max-width:768px){
+.login {
+  width: 50%;
+}
+.login-top {
+  padding: 18px 25px;
+}
+body {
+  padding: 150px 0px 136px 0px;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0px 0px 40px 0px;
+}
+}
+@media(max-width:640px){
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0px 0px 20px 0px;	
+}
+body {
+  padding: 50px 0px 30px 0px;
+}
+.login {
+  width: 57%;
+}
+}
+@media(max-width:480px){
+h1 {
+  font-size: 26px;	
+}
+.login {
+  width: 68%;
+}
+.login-top {
+  padding: 15px 20px;
+}
+.login-bottom {
+  padding: 15px 20px;
+}
+.login p {
+  padding: 11px 0px 20px 20px;
+}
+}
+@media(max-width:320px){
+.login {
+  width: 93%;
+}
+.copyright {
+  padding: 35px 0px 0px 0px;	
+}
+h1 {
+  font-size: 23px;
+  margin: 0px 0px 15px 0px;
+}
+.login-top {
+  padding: 11px 20px;
+}
+.login-bottom h3 {
+  font-size: 12px;
+  margin: 0px 0px 12px 0px;
+}
+.login-top h2 {
+  font-size: 12px;
+}
+.login-bottom input[type="text"] {
+  font-size: 10px;
+  padding: 8px 5px 10px 5px;
+  margin: 0px 0px 10px 0px;
+}
+.login-bottom input[type="password"] {
+  font-size: 10px;
+  padding: 8px 5px 10px 5px;
+  margin: 0px 0px 7px 0px;
+}
+.login-bottom .checkbox {
+  font-size: 12px;
+}
+.login-bottom h4 a {
+  font-size: 12px;
+}
+.login-bottom input[type="submit"] {
+  font-size: 11px;
+  padding: 9px 19px;
+}
+.login-bottom input[type="submit"] {
+  margin: 20px 0px 0px 0px;
+}
+.login p a {
+  font-size: 12px;
+}
+.copyright p {
+  font-size: 13px;
+}
+.copyright p a {
+  font-size: 13px;
+}
+body {
+  padding: 55px 0px 30px 0px;
+}
+
+}
+/*--meadia quiries end here--*/

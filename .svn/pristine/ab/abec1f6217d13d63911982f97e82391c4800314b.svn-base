@@ -1,0 +1,213 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">  
+    <!-- bootstrap-css -->
+	<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// bootstrap-css -->
+    <!-- css -->
+	<link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+    <!--// css -->
+	<script src="static/js/jquery-1.11.0.min.js"></script>
+    </asp:Content>
+    
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
+<!-- header nav -->
+	<div class="header-nav">
+		<div class="container">
+			<div class="header">
+
+				<div class="header-info-right">
+					<div class="header cbp-spmenu-push">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+						
+	
+
+<!--clients-->
+<div class="clients">
+	<div class="client-grids">
+		<div class="client-grid">
+			<a href="#"><img src="static/image/1111.jpg" alt=""/></a>
+			<div class="desc">
+				<h3><a href="#">Williams</a></h3>
+				<h4>Business Developer</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img">
+				<img src="static/image/arrow.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/2222.jpg" alt=""/></a>
+			<div class="desc">
+				<h3><a href="#">Ananda</a></h3>
+				<h4>Chief Executive Officer</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img">
+				<img src="static/image/arrow.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/6666.jpg" alt=""/></a>
+			<div class="desc">
+				<h3><a href="#">Shivam</a></h3>
+				<h4>World Groud Head</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img">
+				<img src="static/image/arrow.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/3333.jpg" alt=""/></a>
+			<div class="desc left">
+				<h3><a href="#">Steward</a></h3>
+				<h4>Chief Executive Officer</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img a">
+				<img src="static/image/arrow2.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/9999.jpg" alt=""/></a>
+			<div class="desc left">
+				<h3><a href="#">Nicole</a></h3>
+				<h4>World Groud Head</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img a">
+				<img src="static/image/arrow2.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/7777.jpg" alt=""/></a>
+			<div class="desc left">
+				<h3><a href="#">Chinge</a></h3>
+				<h4>Business Developer</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img a">
+				<img src="static/image/arrow2.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/1111.jpg" alt=""/></a>
+			<div class="desc">
+				<h3><a href="#">Williams</a></h3>
+				<h4>Business Developer</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img">
+				<img src="static/image/arrow.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/2222.jpg" alt=""/></a>
+			<div class="desc">
+				<h3><a href="#">Ananda</a></h3>
+				<h4>Chief Executive Officer</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img">
+				<img src="static/image/arrow.png" alt=""/>
+			</div>
+		</div>
+		<div class="client-grid">
+			<a href="#"><img src="static/image/6666.jpg" alt=""/></a>
+			<div class="desc">
+				<h3><a href="#">Shivam</a></h3>
+				<h4>World Groud Head</h4>
+				<p><a href="#">READ FULL STORY</a></p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twit" href="#"></a></li>
+					<li><a class="goog" href="#"></a></li>
+				</ul>
+				
+			</div>
+			<div class="desc-img">
+				<img src="static/image/arrow.png" alt=""/>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	
+</div>
+<!-- //clients -->
+        <!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-grids">
+			<div class="footer-left">
+			<style type="text/css">
+             p{font-size:medium }
+			</style>
+                <p>Producer Team:HuBin WangFeng WangYa SunHaoPeng ChenTianWei XieYu</p>
+			</div>
+			
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--//footer-->
+
+    </asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="background" runat="server">
+
+</asp:Content>

@@ -1,0 +1,39 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="mymessage.aspx.cs" Inherits="user_auth_user_common_user_mymessage_mymessage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script type="text/javascript">
+		function getMessage() {
+			$.getJSON("MessageDeal.ashx", { recv_username: "<%=Session["username"]%>" }, function (result) {
+				$("#<%=Label2.ClientID%>").text(result.message_unread_count);
+				$("#<%=Label4.ClientID%>").text(result.message_read_count);
+				$("#<%=Label6.ClientID%>").text(result.message_read_count + result.message_unread_count);
+			}
+			)
+		}
+		setInterval(getMessage,10000);//每10秒更新一次数据
+	</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <br />
+    <br />
+	<form id="form1" runat="server" align="center">
+		<asp:Label ID="Label1" runat="server" Text="未读消息: "></asp:Label> &nbsp;&nbsp;&nbsp;
+		<asp:Label ID="Label2" runat="server" Text="0"></asp:Label>&nbsp;&nbsp;&nbsp;
+		<a href="showmessage.aspx?kind=unread">查看未读消息</a>
+		<br />
+		<br />
+		<asp:Label ID="Label3" runat="server" Text="已读消息"></asp:Label> &nbsp;&nbsp;&nbsp;
+		<asp:Label ID="Label4" runat="server" Text="0"></asp:Label> &nbsp;&nbsp;&nbsp;
+		<a href="showmessage.aspx?kind=read">查看已读消息</a>
+		<br />
+		<br />
+		<asp:Label ID="Label5" runat="server" Text="所有消息"></asp:Label> &nbsp;&nbsp;&nbsp;
+		<asp:Label ID="Label6" runat="server" Text="0"></asp:Label> &nbsp;&nbsp;&nbsp;
+		<a href="showmessage.aspx?kind=all">查看所有消息</a>
+	
+    <br />
+    <br />
+	<button onclick="getMessage()">此处为ajax自动实时刷新消息功能，也可手动点击刷新</button>
+        </form>
+</asp:Content>
+

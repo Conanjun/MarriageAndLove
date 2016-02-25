@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// <summary>
+/// sql_admin 的摘要说明
+/// </summary>
+public class sql_admin
+{
+	public sql_admin()
+	{
+		//
+		// TODO: 在此处添加构造函数逻辑
+		//
+	}
+}

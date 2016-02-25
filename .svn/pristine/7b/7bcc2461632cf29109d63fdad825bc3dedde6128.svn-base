@@ -1,0 +1,25 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="userdefault.aspx.cs" Inherits="user_auth_user_common_user_userdefault" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+	 <script type="text/javascript">
+		function getChatAsk() {
+			$.getJSON("chat/chat_notice.ashx", { invited_username: "<%=Session["username"]%>" }, function (result) {
+				if (result.IfHasInvite == 1) {
+					var r = confirm(result.launch_username + "邀你聊天，点击确定同意聊天，点击取消拒绝");
+					if (r == true) {
+						window.location.href = "chat/chatroom.aspx";
+					}
+				}
+			}
+			)
+		}
+	 	setInterval(getChatAsk, 10000);//每10秒检查一次是否有聊天申请
+	</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<font  size="5"  color="black">尊敬的<%=Session["username"]%>，欢迎来到龙爱婚恋。</font>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="background" runat="server">
+
+</asp:Content>

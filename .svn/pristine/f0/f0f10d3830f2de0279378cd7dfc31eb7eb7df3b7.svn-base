@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class user_auth_user_common_user_mymessage_showmessage : System.Web.UI.Page
+{
+	msg mymsg = new msg();
+	string[] msglist;
+	int msgcount = 0;
+	string[] timelist;
+	string[] sendpeoplelist;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+		if (Session["username"] == null)
+		{
+			WebMessageBox.Show("session失效，请重新登录", "../../../../login/login.aspx");
+		}
+		{
+			mymsg.RecvUsername = Session["username"].ToString();
+			string kind = Request.QueryString["kind"];
+			if (kind == "all")
+			{
+				msgcount = mymsg.MessageSelectByRecvUser(mymsg).Tables[0].Rows.Count;
+				msglist=new string[msgcount];
+				timelist = new string[msgcount];
+				sendpeoplelist = new string[msgcount];
+				for (int i = 0; i < msgcount; i++)
+				{
+					msglist[i] = mymsg.MessageSelectByRecvUser(mymsg).Tables[0].Rows[i]["content"].ToString();
+					timelist[i] = mymsg.MessageSelectByRecvUser(mymsg).Tables[0].Rows[i]["sendtime"].ToString();
+					sendpeoplelist[i] = mymsg.MessageSelectByRecvUser(mymsg).Tables[0].Rows[i]["send_username"].ToString();
+				}
+			}
+			else if (kind == "read")
+			{
+				msgcount = mymsg.MessageSelectByRecvUserReaded(mymsg).Tables[0].Rows.Count;
+				msglist = new string[msgcount];
+				timelist = new string[msgcount];
+				sendpeoplelist = new string[msgcount];
+
+				for (int i = 0; i < msgcount; i++)
+				{
+					msglist[i] = mymsg.MessageSelectByRecvUserReaded(mymsg).Tables[0].Rows[i]["content"].ToString();
+					timelist[i] = mymsg.MessageSelectByRecvUserReaded(mymsg).Tables[0].Rows[i]["sendtime"].ToString();
+					sendpeoplelist[i] = mymsg.MessageSelectByRecvUserReaded(mymsg).Tables[0].Rows[i]["send_username"].ToString();
+				}
+			}
+			else
+			{
+				msgcount = mymsg.MessageSelectByRecvUserReaded(mymsg).Tables[0].Rows.Count;
+				msglist = new string[msgcount];
+				timelist = new string[msgcount];
+				sendpeoplelist = new string[msgcount];
+				for (int i = 0; i < msgcount; i++)
+				{
+					msglist[i] = mymsg.MessageSelectByRecvUserUnreaded(mymsg).Tables[0].Rows[i]["content"].ToString();
+					timelist[i] = mymsg.MessageSelectByRecvUserUnreaded(mymsg).Tables[0].Rows[i]["sendtime"].ToString();
+					sendpeoplelist[i] = mymsg.MessageSelectByRecvUserUnreaded(mymsg).Tables[0].Rows[i]["send_username"].ToString();
+				}
+			}
+		}
+    }
+	
+	//返回前台调用
+	public string[] MsgList
+	{
+		get { return msglist; }
+	}
+
+	public string[] TimeList
+	{
+		get { return timelist; }
+	}
+
+	public string[] SendPeopleList
+	{
+		get { return sendpeoplelist; }
+	}
+	public int MsgCount
+	{
+		get { return msgcount; }
+	}
+}

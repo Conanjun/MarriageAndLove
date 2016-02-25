@@ -1,0 +1,22 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="fate_search.aspx.cs" Inherits="search_for_fate_fate_search" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	 <form id="form1" runat="server">
+		<asp:Button ID="Button1" runat="server" Text="点击获取你的有缘人" OnClick="Button1_Click" />
+    	<br />
+		 <br />
+		 <br />
+    <div>
+		<asp:Label ID="Label1" runat="server" Text="有缘人会员名:"></asp:Label>
+    
+    &nbsp;&nbsp;&nbsp;	
+		<asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+    
+    </div>
+    </form>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="background" Runat="Server">
+</asp:Content>
+

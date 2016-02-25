@@ -1,0 +1,64 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="myfriend.aspx.cs" Inherits="user_auth_user_common_user_myfriend" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<form runat="server">
+	<h2>好友列表</h2>
+	  <ul>
+		  <%for(int i=0;i<FriendCount;i++){ %>
+				 <li><a href="#"><%=friendlist[i]%></a>
+					 &nbsp;&nbsp;&nbsp;<a href="friend_detail.aspx?friendname_dtl=<%=friendlist[i]%>>">查看好友</a>
+					 &nbsp;&nbsp;&nbsp;<a href="friend_msg.aspx?friendname_msg=<%=friendlist[i]%>">发送消息</a>
+					 &nbsp;&nbsp;&nbsp;<a href="friend_del.aspx?friendname_del=<%=friendlist[i]%>">删除好友</a>
+				 </li>
+				<%--<input type="button" id="<%=i %>" /> --%>
+				<%-- <asp:Button ID="<%=i%>" runat="server" Text="发送消息"/> --%> 
+				<%-- <asp:Button ID="<%=FriendCount+i%>" runat="server" Text="查看好友"/> --%> 
+				<%-- <asp:Button ID="<%=2*FriendCount+i%>" runat="server" Text="删除好友"/> --%>
+		  <%} %>
+	  </ul>
+
+		<p>
+			<asp:Label ID="Label1" runat="server" Text="好友总数:"></asp:Label>
+&nbsp;
+			<asp:Label ID="Label2" runat="server" Text="0"></asp:Label>
+		</p>
+		
+	<h2>搜索好友</h2>
+	<%--使用ajax完成搜索功能--%>
+	
+            
+			<asp:TextBox ID="TextBox1" runat="server" Width="129px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;
+	
+            
+			<asp:Button ID="search" runat="server" Text="查找" OnClick="search_Click"/>
+		
+
+		<br />
+		<asp:Label ID="Label3" runat="server" Text="搜索结果:" Width="100px"></asp:Label>
+		<asp:Label ID="Label4" runat="server" Text="test" Width="100px"></asp:Label>
+		<br />
+		<br />
+	
+
+	<h2>添加好友</h2>
+		
+			&nbsp;<asp:TextBox ID="TextBox2" runat="server" Width="128px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;
+		
+			<asp:Button ID="add" runat="server" Text="添加" OnClick="add_Click"/>
+		<br />
+		<br />
+	<h2>好友申请</h2>
+		<ul>
+			<%for(int i=0;i<FriendAskCount;i++){ %>
+			<li><%=friendasklist[i]%>的好友申请&nbsp;&nbsp<a href="accept_friendask.aspx?action=accept&deal_friend=<%=friendasklist[i]%>">允许</a>&nbsp;&nbsp;<a href="accept_friendask.aspx?action=refuse&deal_friend=<%=friendasklist[i]%>">拒绝</a></li>
+			<%} %>
+		</ul>
+		
+</form>
+	
+</asp:Content>
+

@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class user_auth_user_common_user_map_ShowNearByUsers2 : System.Web.UI.Page
+{
+	string user_pos = "广州"; //暂时写死，后期需从数据库获取
+	string[] user_nearby_pos = { "广州火车站", "广州塔（赤岗塔）", "广州动物园", "天河公园" };//暂时写死，后期需从数据库获取
+	int user_nearby_count = 3;//用户附近的人的人数
+    protected void Page_Load(object sender, EventArgs e)
+    {
+		user_position.Text = user_pos;
+    }
+
+	//返回用户地址
+	public string UserPos
+	{
+		get
+		{ return user_pos;}
+	}
+	//返回用户附近的人的地址列表
+	public string[] UserNearbyPos
+	{
+		get
+		{ return user_nearby_pos;}
+	}
+
+	//返回用户附近的人数
+	public int UserNearbyCount
+	{
+		get { return user_nearby_count; }
+	}
+}

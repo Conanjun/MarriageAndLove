@@ -1,0 +1,11 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="userdefault.aspx.cs" Inherits="user_auth_user_common_user_userdefault" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<font  size="5"  color="black">尊敬的xxx，欢迎来到龙爱婚恋。</font>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="background" runat="server">
+
+</asp:Content>
